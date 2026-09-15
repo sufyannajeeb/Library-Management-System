@@ -1,0 +1,104 @@
+{% include 'admin/admin_header.html' %}
+
+<section id="hero" class="d-flex flex-column justify-content-end align-items-center">
+    <div id="heroCarousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
+  
+  
+  
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+        <!-- <span class="carousel-control-prev-icon bx bx-chevron-left" aria-hidden="true"></span> -->
+      </a>
+  
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+        <!-- <span class="carousel-control-next-icon bx bx-chevron-right" aria-hidden="true"></span> -->
+      </a>
+  
+    </div>
+  
+    <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
+      <defs>
+        <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
+      </defs>
+      <g class="wave1">
+        <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)">
+      </g>
+      <g class="wave2">
+        <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)">
+      </g>
+      <g class="wave3">
+        <use xlink:href="#wave-path" x="50" y="9" fill="#fff">
+      </g>
+    </svg>
+  
+  </section><!-- End Hero -->
+  <br>
+<center>
+    <div class="container py-lg-5">
+
+        <div class="google-search-container">
+            <input type="text" class="google-search-input" id="search" placeholder="Search...">
+            <button class="google-search-button" id="searchButton">Search</button>
+        </div>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>SL NO.</th>
+        <th>NAME</th>
+        <th>PHONE</th>
+        <th>EMAIL</th>
+        <th>PLACE</th>
+        <th>DISTRICT</th>
+       
+        
+    </tr>
+    </thead>
+    {%for i in data['users']%}
+    <tbody>
+    <tr class="member-row">
+        <td>{{loop.index}}</td>
+        <td align="center">
+            <img src="{{i['photo']}}" alt="doc mage" style="width: 150px;height: 150px;">
+            <br>
+            {{i['name']}} </td>
+        <td>{{i['phone']}}</td>
+        <td>{{i['email']}}</td>
+        <td>{{i['place']}}</td>
+        <td>{{i['district']}}</td>
+    </tr>
+</tbody>
+    {%endfor%}
+</table>
+</center>
+<br><br><br><br><br><br><br><br><br><br>
+<style>
+    .google-search-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .google-search-input {
+        width: 300px; /* Adjust the width as needed */
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .google-search-button {
+        background-color: #007bff; /* Change the button background color */
+        color: #fff; /* Change the button text color */
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        margin-left: 10px; /* Adjust the margin as needed */
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .google-search-button:hover {
+        background-color: #0056b3; /* Change the button background color on hover */
+    }
+</style>
+
+{% include 'footer.html' %}
